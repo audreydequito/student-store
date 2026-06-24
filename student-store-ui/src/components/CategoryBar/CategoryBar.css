@@ -1,0 +1,40 @@
+.CategoryBar {
+  position: sticky;
+  top: var(--header-h);
+  z-index: 40;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+}
+.CategoryBar-inner {
+  display: flex;
+  gap: 8px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.CategoryBar-inner::-webkit-scrollbar {
+  display: none;
+}
+.CategoryBar-pill {
+  flex-shrink: 0;
+  padding: 8px 16px;
+  border-radius: var(--r-pill);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  transition: all 0.15s var(--ease);
+}
+.CategoryBar-pill:hover {
+  border-color: var(--border-strong);
+  color: var(--text);
+}
+.CategoryBar-pill.is-active {
+  color: #fff;
+  background: var(--brand);
+  border-color: var(--brand);
+  box-shadow: var(--shadow-sm);
+}

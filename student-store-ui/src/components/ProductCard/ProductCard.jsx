@@ -1,40 +1,51 @@
 import { Link } from "react-router-dom"
-import codepath from "../../assets/codepath.svg"
+import Icon from "../Icon/Icon"
 import { formatPrice } from "../../utils/format"
 import "./ProductCard.css"
 
+// A single product tile. The image + name link through to the detail page,
+// while the add / quantity-stepper control lives inline so users can build a
+// cart without leaving the grid.
 function ProductCard({ product, quantity, addToCart, removeFromCart }) {
   return (
-    <div className="ProductCard">
-      <div className="media">
-        <Link to={`/${product.id}`}>
-          {product.image_url ? <img src={product.image_url} alt="product cover" /> : <img src={codepath} alt="product cover" />}
-        </Link>
-      </div>
-      <div className="product-info">
-        <div className="info">
-          <p className="product-name">{product.name}</p>
-          <p className="product-price">{formatPrice(product.price)}</p>
-        </div>
-        <div className="actions">
-          <div className="buttons">
-            <i className="material-icons" onClick={addToCart}>
-              add
-            </i>
-            <i className="material-icons" onClick={removeFromCart}>
-              remove
-            </i>
+    <article className="ProductCard">
+      <Link to={`/${product.id}`} className="ProductCard-media">
+        {product.image_url ? (
+          <img src={product.image_url} alt={product.name} loading="lazy" />
+        ) : (
+          <div className="ProductCard-media-fallback">
+            <Icon name="box" size={34} />
           </div>
+        )}
+        {product.category && <span className="ProductCard-tag">{product.category}</span>}
+      </Link>
 
-          {quantity ? (
-            <span className="quantity">
-              <span className="amt">{quantity}</span>
-            </span>
-          ) : null}
+      <div className="ProductCard-body">
+        <Link to={`/${product.id}`} className="ProductCard-name">
+          {product.name}
+        </Link>
+        <div className="ProductCard-row">
+          <span className="ProductCard-price">{formatPrice(product.price)}</span>
+
+          {quantity > 0 ? (
+            <div className="stepper">
+              <button onClick={removeFromCart} aria-label={`Remove one ${product.name}`}>
+                <Icon name={quantity === 1 ? "trash" : "minus"} size={16} />
+              </button>
+              <span className="count">{quantity}</span>
+              <button onClick={addToCart} aria-label={`Add one ${product.name}`}>
+                <Icon name="plus" size={16} />
+              </button>
+            </div>
+          ) : (
+            <button className="ProductCard-add btn btn-primary" onClick={addToCart}>
+              <Icon name="plus" size={16} /> Add
+            </button>
+          )}
         </div>
       </div>
-    </div>
+    </article>
   )
 }
 
-export default  ProductCard;
+export default ProductCard

@@ -1,101 +1,260 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;700;900&display=swap");
+/* ===========================================================================
+   Campus Cart — design tokens & base styles
+   A modern, mobile-first storefront. Single source of truth for color,
+   spacing, radius, shadow, and typography used across every component.
+   =========================================================================== */
 
 :root {
-  --side-padding: 40px;
-  --content-width: 1100px;
-  --dark-blue: #2c4047;
-  --bright-green: #00c385;
-  --pure-white: #fff;
-  --grey-bg: #f7f7f7;
-  --accent-orange: #ff9017;
-  --bright-red: #fe3210;
-  --muted: #969696;
-  --font-dark: #212121;
-  --font-light: #5b5b5b;
-  --border-color: #e4e4e4;
-  --star-color-filled: #e5a800;
-  --star-color-empty: #cbd4e6;
-}
+  /* Brand */
+  --brand: #6d28d9;
+  --brand-dark: #5b21b6;
+  --brand-light: #ede9fe;
+  --brand-contrast: #ffffff;
 
-body {
-  margin: 0;
-  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
-    "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background: var(--grey-bg);
-}
+  /* Accents / status */
+  --accent: #06b6d4;
+  --success: #16a34a;
+  --success-bg: #dcfce7;
+  --warning: #d97706;
+  --warning-bg: #fef3c7;
+  --danger: #dc2626;
+  --danger-bg: #fee2e2;
+  --info-bg: #e0f2fe;
+  --info: #0369a1;
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+  /* Neutrals */
+  --bg: #f4f4f7;
+  --surface: #ffffff;
+  --surface-2: #fafafb;
+  --border: #e6e6ee;
+  --border-strong: #d4d4dd;
+  --text: #18181b;
+  --text-muted: #6b7280;
+  --text-faint: #9ca3af;
+
+  /* Layout */
+  --content-width: 1180px;
+  --side-padding: 24px;
+  --header-h: 64px;
+
+  /* Radius */
+  --r-sm: 8px;
+  --r-md: 12px;
+  --r-lg: 18px;
+  --r-xl: 26px;
+  --r-pill: 999px;
+
+  /* Shadow */
+  --shadow-sm: 0 1px 2px rgba(24, 24, 27, 0.06);
+  --shadow-md: 0 4px 16px rgba(24, 24, 27, 0.08);
+  --shadow-lg: 0 12px 40px rgba(24, 24, 27, 0.16);
+
+  /* Motion */
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 * {
   box-sizing: border-box;
 }
 
-a,
-span,
-div,
-p,
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.5;
+}
+
+a {
+  text-decoration: none;
+  color: var(--brand);
+}
+
 h1,
 h2,
 h3,
 h4,
 h5,
 h6,
+p,
 ul,
 ol {
   margin: 0;
-  padding: 0;
-  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
-    "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-  color: var(--font-dark);
 }
 
-a {
-  text-decoration: none;
-  color: var(--bright-green);
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
 }
 
-@media screen and (max-width: 1100px) {
+img {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+textarea {
+  font-family: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
+}
+
+/* ----- Shared layout helper ----- */
+.container {
+  width: 100%;
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding-left: var(--side-padding);
+  padding-right: var(--side-padding);
+}
+
+/* ----- Buttons ----- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 11px 18px;
+  border-radius: var(--r-pill);
+  transition: transform 0.12s var(--ease), background 0.15s var(--ease),
+    box-shadow 0.15s var(--ease), color 0.15s var(--ease);
+  white-space: nowrap;
+}
+.btn:active {
+  transform: scale(0.97);
+}
+.btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+.btn-primary {
+  background: var(--brand);
+  color: var(--brand-contrast);
+  box-shadow: var(--shadow-sm);
+}
+.btn-primary:hover:not(:disabled) {
+  background: var(--brand-dark);
+}
+.btn-secondary {
+  background: var(--brand-light);
+  color: var(--brand-dark);
+}
+.btn-secondary:hover:not(:disabled) {
+  background: #e0d8fb;
+}
+.btn-ghost {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--border-strong);
+}
+.btn-ghost:hover:not(:disabled) {
+  background: var(--surface-2);
+}
+.btn-block {
+  width: 100%;
+}
+
+/* ----- Pills / badges ----- */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 4px 11px;
+  border-radius: var(--r-pill);
+  text-transform: capitalize;
+}
+.badge-pending { background: var(--warning-bg); color: var(--warning); }
+.badge-completed { background: var(--success-bg); color: var(--success); }
+.badge-shipped { background: var(--info-bg); color: var(--info); }
+.badge-cancelled { background: var(--danger-bg); color: var(--danger); }
+.badge-default { background: var(--brand-light); color: var(--brand-dark); }
+
+/* ----- Inline messages ----- */
+.banner {
+  border-radius: var(--r-md);
+  padding: 12px 16px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+.banner-error { background: var(--danger-bg); color: var(--danger); }
+.banner-info { background: var(--info-bg); color: var(--info); }
+
+.text-muted { color: var(--text-muted); }
+
+/* ----- Skeleton loading shimmer ----- */
+.skeleton {
+  position: relative;
+  overflow: hidden;
+  background: #ececf1;
+}
+.skeleton::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+  animation: shimmer 1.4s infinite;
+}
+@keyframes shimmer {
+  100% { transform: translateX(100%); }
+}
+
+/* ----- Quantity stepper ----- */
+.stepper {
+  display: inline-flex;
+  align-items: center;
+  background: var(--surface);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--r-pill);
+  overflow: hidden;
+}
+.stepper button {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  color: var(--brand-dark);
+  transition: background 0.12s var(--ease);
+}
+.stepper button:hover:not(:disabled) {
+  background: var(--brand-light);
+}
+.stepper button:disabled {
+  color: var(--text-faint);
+  cursor: not-allowed;
+}
+.stepper .count {
+  min-width: 30px;
+  text-align: center;
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+@media (max-width: 640px) {
   :root {
-    --content-width: 900px;
+    --side-padding: 16px;
   }
 }
 
-@media screen and (max-width: 1000px) {
-  :root {
-    --content-width: 800px;
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
   }
-}
-
-/* Rules for sizing the icon. */
-.material-icons.md-18 {
-  font-size: 18px;
-}
-.material-icons.md-24 {
-  font-size: 24px;
-}
-.material-icons.md-36 {
-  font-size: 36px;
-}
-.material-icons.md-48 {
-  font-size: 40px;
-}
-
-/* Rules for using icons as black on a light background. */
-.material-icons.md-dark {
-  color: rgba(0, 0, 0, 0.54);
-}
-.material-icons.md-dark.md-inactive {
-  color: rgba(0, 0, 0, 0.26);
-}
-
-/* Rules for using icons as white on a dark background. */
-.material-icons.md-light {
-  color: rgba(255, 255, 255, 1);
-}
-.material-icons.md-light.md-inactive {
-  color: rgba(255, 255, 255, 0.3);
 }
