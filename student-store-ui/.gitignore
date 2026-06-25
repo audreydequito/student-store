@@ -25,3 +25,5 @@ yarn-error.log*
 
 *-lock.*
 *.lock
+
+.env
