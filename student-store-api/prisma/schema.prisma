@@ -28,7 +28,7 @@ model Product {
 model Order {
   id            Int         @id @default(autoincrement()) @map("order_id")
   customerId    Int         @map("customer_id")
-  customerEmail String?     @map("customer_email")
+  customerEmail String      @map("customer_email")
   totalPrice    Float       @map("total_price")
   status        String
   createdAt     DateTime    @default(now()) @map("created_at")

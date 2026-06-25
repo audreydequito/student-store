@@ -42,6 +42,7 @@ async function seed() {
         data: {
           id: order.order_id,
           customerId: order.customer_id,
+          customerEmail: order.customer_email,
           totalPrice: order.total_price,
           status: order.status,
           createdAt: new Date(order.created_at),
