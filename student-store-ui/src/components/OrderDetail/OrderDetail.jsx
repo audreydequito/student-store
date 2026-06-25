@@ -124,7 +124,7 @@ function OrderDetail({ products = [] }) {
           </div>
           <div className="OrderDetail-meta-item">
             <span className="OrderDetail-meta-label">Items</span>
-            <span>{items.length}</span>
+            <span>{items.reduce((sum, item) => sum + item.quantity, 0)}</span>
           </div>
           <div className="OrderDetail-meta-item">
             <span className="OrderDetail-meta-label">Total</span>

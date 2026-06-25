@@ -85,9 +85,14 @@ function Orders() {
               </div>
               <div className="Orders-row-meta">
                 <span className={`badge ${statusBadgeClass(order.status)}`}>{order.status}</span>
-                <span className="text-muted Orders-row-count">
-                  {order.orderItems.length} item{order.orderItems.length === 1 ? "" : "s"}
-                </span>
+                {(() => {
+                  const totalQty = order.orderItems.reduce((sum, item) => sum + item.quantity, 0)
+                  return (
+                    <span className="text-muted Orders-row-count">
+                      {totalQty} item{totalQty === 1 ? "" : "s"}
+                    </span>
+                  )
+                })()}
                 <span className="Orders-row-total">{formatPrice(order.totalPrice)}</span>
                 <span className="text-muted Orders-row-date">{formatDate(order.createdAt)}</span>
                 <Icon name="arrowRight" size={18} className="Orders-row-chevron" />
