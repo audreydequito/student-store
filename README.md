@@ -1,10 +1,8 @@
-📝 `NOTE` Use this template to initialize the contents of a README.md file for your application. As you work on your assignment over the course of the week, update the required or stretch features lists to indicate which features you have completed by changing `[ ]` to `[x]`. (🚫 Remove this paragraph before submitting your assignment.)
-
 ## Unit Assignment: Student Store
 
 Submitted by: **Audrey Dequito**
 
-Deployed Application (optional): [Student Store Deployed Site](ADD_LINK_HERE)
+Deployed Application (optional): [Student Store Deployed Site](https://student-store-ui-c6ez.onrender.com/)
 
 ### Application Features
 
@@ -12,7 +10,7 @@ Deployed Application (optional): [Student Store Deployed Site](ADD_LINK_HERE)
 
 - [x] **Database Creation**: Set up a Postgres database to store information about products and orders.
   - [x]  Use Prisma to define models for `products`, `orders`, and `order_items`.
-  - [ ]  **VIDEO WALKTHROUGH SPECIAL INSTRUCTIONS**: Use Prisma Studio to demonstrate the creation of your `products`, `orders`, and `order_items` tables. 
+  - [x]  **VIDEO WALKTHROUGH SPECIAL INSTRUCTIONS**: Use Prisma Studio to demonstrate the creation of your `products`, `orders`, and `order_items` tables. 
 - [x] **Products Model**
   - [x] Develop a products model to represent individual items available in the store. 
   - [x] This model should at minimum include the attributes:
@@ -24,7 +22,7 @@ Deployed Application (optional): [Student Store Deployed Site](ADD_LINK_HERE)
     - [x] `category`
   - [x] Implement methods for CRUD operations on products.
   - [x] Ensure transaction handling such that when an product is deleted, any `order_items` that reference that product are also deleted. 
-  - [ ] **VIDEO WALKTHROUGH SPECIAL INSTRUCTIONS**: Use Prisma Studio to demonstrate the creation of all attributes (table columns) in your Products Model.
+  - [x] **VIDEO WALKTHROUGH SPECIAL INSTRUCTIONS**: Use Prisma Studio to demonstrate the creation of all attributes (table columns) in your Products Model.
 - [x] **Orders Model**
   - [x] Develop a model to manage orders. 
   - [x] This model should at minimum include the attributes:
@@ -35,7 +33,7 @@ Deployed Application (optional): [Student Store Deployed Site](ADD_LINK_HERE)
     - [x] `created_at`
   - [x] Implement methods for CRUD operations on orders.
   - [x] Ensure transaction handling such that when an order is deleted, any `order_items` that reference that order are also deleted. 
-  - [ ] **VIDEO WALKTHROUGH SPECIAL INSTRUCTIONS**: Use Prisma Studio to demonstrate the creation of all attributes (table columns) in your Order Model.
+  - [x] **VIDEO WALKTHROUGH SPECIAL INSTRUCTIONS**: Use Prisma Studio to demonstrate the creation of all attributes (table columns) in your Order Model.
 
 - [x] **Order Items Model**
   - [x] Develop a model to represent the items within an order. 
@@ -46,7 +44,7 @@ Deployed Application (optional): [Student Store Deployed Site](ADD_LINK_HERE)
     - [x] `quantity`
     - [x] `price`
   - [x] Implement methods for fetching and creating order items.  
-  - [ ] **VIDEO WALKTHROUGH SPECIAL INSTRUCTIONS**: Use Prisma Studio to demonstrate the creation of all attributes (table columns) in your Order Items Model.
+  - [x] **VIDEO WALKTHROUGH SPECIAL INSTRUCTIONS**: Use Prisma Studio to demonstrate the creation of all attributes (table columns) in your Order Items Model.
 - [x] **API Endpoints**
   - [x] Application supports the following **Product Endpoints**:
     - [x] `GET /products`: Fetch a list of all products.
@@ -60,11 +58,11 @@ Deployed Application (optional): [Student Store Deployed Site](ADD_LINK_HERE)
     - [x] `POST /orders`: Create a new order with specified order items.
     - [x] `PUT /orders/:order_id`: Update the details of an existing order (e.g., change status).
     - [x] `DELETE /orders/:order_id`: Remove an order from the database.
-    - [ ] **VIDEO WALKTHROUGH SPECIAL INSTRUCTIONS**: Use Postman or another API testing tool to demonstrate the successful implementation of each endpoint. For the `DELETE` endpoints, please use Prisma Studio to demonstrate that any relevant order items have been deleted. 
+    - [x] **VIDEO WALKTHROUGH SPECIAL INSTRUCTIONS**: Use Postman or another API testing tool to demonstrate the successful implementation of each endpoint. For the `DELETE` endpoints, please use Prisma Studio to demonstrate that any relevant order items have been deleted. 
 - [x] **Frontend Integration**
   - [x] Connect the backend API to the provided frontend interface, ensuring dynamic interaction for product browsing, cart management, and order placement. Adjust the frontend as necessary to work with your API.
   - [x] Ensure the home page displays products contained in the product table.
-  - [ ] **VIDEO WALKTHROUGH SPECIAL INSTRUCTIONS**: Use `npm start` to run your server and display your website in your browser. 
+  - [x] **VIDEO WALKTHROUGH SPECIAL INSTRUCTIONS**: Use `npm start` to run your server and display your website in your browser. 
     - [x] Demonstrate that users can successfully add items to their shopping cart, delete items from their shopping cart, and place an order
     - [x] After placing an order use Postman or Prisma Studio demonstrate that a corresponding order has been created in your orders table.
 
@@ -92,36 +90,48 @@ Deployed Application (optional): [Student Store Deployed Site](ADD_LINK_HERE)
   - [x] Upon entering an email address and submitting the input, the list of orders is filtered to only show orders placed by the user with the provided email. 
   - [x] The user can easily navigate back to the full list of orders after filtering. 
     - [x] Proper error handling is implemented, such as displaying "no orders found" when an invalid email is provided.
-- [ ] **Deployment**
-  - [ ] Website is deployed using [Render](https://courses.codepath.org/snippets/site/render_deployment_guide).
-  - [ ] **VIDEO WALKTHROUGH SPECIAL INSTRUCTIONS**: To ease the grading process, please use the deployed version of your website in your walkthrough with the URL visible. 
+- [x] **Deployment**
+  - [x] Website is deployed using [Render](https://courses.codepath.org/snippets/site/render_deployment_guide).
+  - [x] **VIDEO WALKTHROUGH SPECIAL INSTRUCTIONS**: To ease the grading process, please use the deployed version of your website in your walkthrough with the URL visible. 
 
 
 
 ### Walkthrough Video
 
-`TODO://` Add the embedded URL code to your animated app walkthrough below, `ADD_EMBEDDED_CODE_HERE`. Make sure the video or gif actually renders and animates when viewing this README. (🚫 Remove this paragraph after adding walkthrough video)
+<div style="position: relative; padding-bottom: 64.55089820359281%; height: 0;"><iframe src="https://www.loom.com/embed/5e95c4ea39ec454cbb8ca17a7d570f48" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
 
-`ADD_EMBEDDED_CODE_HERE`
+Link: https://www.loom.com/share/5e95c4ea39ec454cbb8ca17a7d570f48
 
 ### Reflection
 
 * Did the topics discussed in your labs prepare you to complete the assignment? Be specific, which features in your weekly assignment did you feel unprepared to complete?
 
-Add your response here
+The topics on React, routing, and Axios helped me configure API calls more easily and organize my pages around the user experience and codebase. I felt less prepared on the backend side — setting up the Postgres database with Prisma and getting the `products`, `orders`, and `order_items` models to relate correctly. Handling the relational data and transaction logic (like cascading deletes so order items are removed when a product or order is deleted) and managing cart state across the app were the parts I felt least prepared for.
 
 * If you had more time, what would you have done differently? Would you have added additional features? Changed the way your project responded to a particular event, etc.
-  
-Add your response here
+
+If I had more time, I would have smoothed out the navigation UI since the site feels a bit clunky at times. I would have added user accounts/login so a user's cart and past orders persist across devices. I would also like to build a dedicated mobile experience rather than a scaled-down version of the desktop layout.
 
 * Reflect on your project demo, what went well? Were there things that maybe didn't go as planned? Did you notice something that your peer did that you would like to try next time?
 
-Add your response here
+I was able to demonstrate all of my features during the demo, including the full cart-to-checkout flow and the past orders pages. What didn't go as planned was my presentation flow — I got a little off track and my speaking could have been clearer and more energetic. Next time I'd like to plan a tighter walkthrough and, like a peer did, rethink the mobile layout instead of reusing the desktop one.
 
 ### Open-source libraries used
 
-- Add any links to open-source libraries used in your project.
+**Frontend**
+- [React](https://react.dev/) + [Vite](https://vitejs.dev/) — UI framework & build tool
+- [React Router](https://reactrouter.com/) — client-side routing
+- [Axios](https://axios-http.com/) — HTTP client for API requests
+- [Moment.js](https://momentjs.com/) — date/time formatting
+
+**Backend**
+- [Express](https://expressjs.com/) — REST API server
+- [Prisma ORM](https://www.prisma.io/) + [PostgreSQL](https://www.postgresql.org/) — database & models (`products`, `orders`, `order_items`)
+- [cors](https://www.npmjs.com/package/cors) — cross-origin middleware
+- [dotenv](https://www.npmjs.com/package/dotenv) — environment variable config
 
 ### Shout out
 
 Give a shout out to somebody from your cohort that especially helped you during your project. This can be a fellow peer, instructor, TA, mentor, etc.
+
+Huge thanks to **Devarsh**, and **Miguel** for the help and support throughout this project!
